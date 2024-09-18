@@ -1,11 +1,17 @@
-import './App.css';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import Inicio from './paginas/Inicio';
 import SobreMim from './paginas/SobreMim';
 
-const pagina = window.location.pathname === "/" ? <Inicio /> : <SobreMim />
-
 function App() {
-  return pagina;
+  return (
+    <BrowserRouter>
+      <Routes>
+        <Route path="/" element={<Inicio />} />
+        <Route path="/sobre-mim" element={<SobreMim />} />
+        <Route path="*" element={<h1>Página não encontrada!</h1>} />
+      </Routes>
+    </BrowserRouter>
+  );
 }
 
 export default App;
