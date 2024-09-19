@@ -29,15 +29,15 @@
     position: absolute;
     right: 0;
     bottom: 0;
-    width: 256px;
+    width: 18vw;
     border-radius: 50%;
 }
  
 .imagens > .circuloColorido {
     position: absolute;
     right: 7vw;
-    bottom: 50px;
-    width: 360px;
+    bottom: 2.2vw;
+    width: 25vw;
 }
  
 @media (max-width: 1100px) {    
