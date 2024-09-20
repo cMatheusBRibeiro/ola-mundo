@@ -8,8 +8,11 @@ import ReactMarkdown from "react-markdown";
 export default function Post() {
     const parametros = useParams();
 
-    const idPost = Number(parametros.id);
-    const post = posts.find((post) => post.id === idPost);
+    const post = posts.find((post) => post.id === Number(parametros.id));
+
+    if (!post) {
+        return <h1>Post não encontrado</h1>;
+    }
     
     return (
         <PostModelo
