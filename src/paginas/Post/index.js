@@ -1,11 +1,13 @@
 import "./Post.css";
+import styles from "./Post.module.css";
 
-import { Route, Routes, useParams } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import posts from "json/posts.json";
 import PostModelo from "componentes/PostModelo";
 import ReactMarkdown from "react-markdown";
 import NaoEncontrada from "paginas/NaoEncontrada";
 import PaginaPadrao from "componentes/PaginaPadrao";
+import ListaPosts from "componentes/ListaPosts";
 
 export default function Post() {
     const parametros = useParams();
@@ -16,6 +18,11 @@ export default function Post() {
         return <NaoEncontrada />;
     }
     
+    const postsRecomendados = posts
+        .filter((post) => post.id !== Number(parametros.id))
+        .sort((a, b) => b.id - a.id)
+        .slice(0, 4);
+
     return (
         <PaginaPadrao>
             <PostModelo
@@ -27,6 +34,12 @@ export default function Post() {
                         {post.texto}
                     </ReactMarkdown>
                 </div>
+
+                <h3 className={styles.tituloOutrosPosts}>
+                    Outros posts que você pode gostar:
+                </h3>
+
+                <ListaPosts posts={postsRecomendados} />
             </PostModelo>
         </PaginaPadrao>
     );
