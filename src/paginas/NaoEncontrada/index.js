@@ -1,3 +1,4 @@
+import BotaoPrincipal from "componentes/BotaoPrincipal";
 import styles from "./NaoEncontrada.module.css";
 import erro404 from "assets/erro_404.png";
 
@@ -20,7 +21,7 @@ export default function NaoEncontrada() {
                 </p>
 
                 <div className={styles.botaoContainer}>
-                    <button>Voltar</button>
+                    <BotaoPrincipal>Voltar</BotaoPrincipal>
                 </div>
 
                 <img
